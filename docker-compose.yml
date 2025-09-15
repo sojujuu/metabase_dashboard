@@ -1,0 +1,40 @@
+services:
+  mysql:
+    image: mysql:8.4.6
+    container_name: mysql
+    hostname: mysql
+    ports: ["3306:3306"]
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: db_dashboard          # analytics DB (Metabase connects to this via UI)
+      MYSQL_USER: metabase               # created by entrypoint
+      MYSQL_PASSWORD: metabase
+      TZ: Asia/Jakarta
+    command: ["--mysql-native-password=ON"]
+    volumes:
+      - /Users/julius/metabase/mysql_data:/var/lib/mysql
+      - /Users/julius/metabase/mysql_init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+
+  metabase:
+    image: metabase/metabase:latest
+    container_name: metabase
+    restart: always
+    ports: ["3000:3000"]
+    environment:
+      # Use MySQL as Metabase's *application database* (per docs)
+      MB_DB_CONNECTION_URI: "jdbc:mysql://mysql:3306/metabase?useSSL=false"
+      MB_DB_USER: metabase
+      MB_DB_PASS: metabase
+      # Optional plugins dir (e.g., add Oracle ojdbc8.jar later)
+      MB_PLUGINS_DIR: /plugins
+    depends_on:
+      mysql:
+        condition: service_healthy
+    volumes:
+      - /Users/julius/metabase/metabase_data:/metabase-data
+      - /Users/julius/metabase/plugins:/plugins
