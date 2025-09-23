@@ -154,9 +154,7 @@ CREATE TABLE IF NOT EXISTS correlation_result (
   corrmet_id     INT  NOT NULL, 
   period_name    VARCHAR(50) NOT NULL,
   processing_date DATE NOT NULL,
-  method         VARCHAR(50) NOT NULL,
   r_value        DECIMAL(5,1) NULL,
-  p_value        DECIMAL(5,1) NULL,
   n_samples      INT  NOT NULL,
   created_at     TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
