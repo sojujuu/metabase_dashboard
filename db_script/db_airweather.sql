@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS pollutant_attribute (
 
 CREATE TABLE IF NOT EXISTS weather_attribute (
   weatherattr_id    INT NOT NULL AUTO_INCREMENT,
-  weatherattr_code  VARCHAR(10) NOT NULL,
+  weatherattr_code  VARCHAR(20) NOT NULL,
   weatherattr_name  VARCHAR(100) NOT NULL,
   weatherattr_unit  VARCHAR(50) NOT NULL,
 

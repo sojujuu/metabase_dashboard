@@ -22,15 +22,15 @@ VALUES
 
 INSERT INTO weather_attribute (weatherattr_code, weatherattr_name, weatherattr_unit)
 VALUES
-  ('TN',     'Temperatur Minimum Harian',       '°C'),
-  ('TX',     'Temperatur Maksimum Harian',      '°C'),
-  ('TAVG',   'Temperatur Rata-rata Harian',     '°C'),
-  ('RH_AVG', 'Kelembapan Relatif Rata-rata',    '%'),
-  ('RR',     'Curah Hujan Harian',              'mm'),
-  ('SS',     'Durasi Penyinaran Matahari',      'jam'),
-  ('FF_X',   'Kecepatan Angin Maksimum',        'm/s'),
-  ('DDD_X',  'Arah Angin pada Kecepatan Maks',  'derajat'),
-  ('FF_AVG', 'Kecepatan Angin Rata-rata',       'm/s');
+  ('suhu_min',     'Temperatur Minimum Harian',       '°C'),
+  ('suhu_max',     'Temperatur Maksimum Harian',      '°C'),
+  ('suhu_avg',     'Temperatur Rata-rata Harian',     '°C'),
+  ('kelembapan_avg',   'Kelembapan Relatif Rata-rata',    '%'),
+  ('curah_hujan',  'Curah Hujan Harian',              'mm'),
+  ('durasi_penyinaran', 'Durasi Penyinaran Matahari',      'jam'),
+  ('kecepatan_angin_max',         'Kecepatan Angin Maksimum',        'm/s'),
+  ('arah_angin_max',       'Arah Angin pada Kecepatan Maks',  'derajat'),
+  ('kecepatan_angin_avg',     'Kecepatan Angin Rata-rata',       'm/s');
 
 INSERT INTO pollutant_attribute (pollutantattr_code, pollutantattr_name, pollutantattr_unit)
 VALUES
