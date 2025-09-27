@@ -15,7 +15,7 @@ services:
       - /Users/julius/metabase_dashboard/mysql_data:/var/lib/mysql
       - /Users/julius/metabase_dashboard/mysql_init:/docker-entrypoint-initdb.d:ro
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot"]
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-prootpass"]
       interval: 5s
       timeout: 3s
       retries: 30
