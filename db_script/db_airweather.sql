@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS location (
   location_id  INT NOT NULL AUTO_INCREMENT,
   city_id      INT NOT NULL,
   station_code VARCHAR(50) NOT NULL,
-  station_type VARCHAR(50) NULL,
+  station_name VARCHAR(50) NULL,
 
   PRIMARY KEY (location_id),
   UNIQUE KEY uq_location_station_code (station_code),
@@ -138,6 +138,7 @@ CREATE TABLE IF NOT EXISTS correlation_metrics (
 
   PRIMARY KEY (corrmet_id),
   UNIQUE KEY uq_corrmet_code (corrmet_code),
+  UNIQUE KEY uq_corrmet_pair (weather_x, pollutant_y),
 
   CONSTRAINT fk_corrmet_weatherattr
     FOREIGN KEY (weather_x) REFERENCES weather_attribute(weatherattr_id)
@@ -154,7 +155,7 @@ CREATE TABLE IF NOT EXISTS correlation_result (
   corrmet_id     INT  NOT NULL, 
   period_name    VARCHAR(50) NOT NULL,
   processing_date DATE NOT NULL,
-  r_value        DECIMAL(5,1) NULL,
+  val_result     INT NOT NULL,
   n_samples      INT  NOT NULL,
   created_at     TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
