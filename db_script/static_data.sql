@@ -20,6 +20,14 @@ VALUES
   ('SANGAT TIDAK SEHAT'),
   ('TIDAK ADA DATA');
 
+INSERT INTO correlation_flag (corrflag_id, corrflag_desc)
+VALUES
+  (1, 'STABLE'),
+  (2, 'CONSISTENT_WEAKER'),
+  (3, 'NONLINEAR_OR_OUTLIERS'),
+  (4, 'UNRELIABLE'),
+  (5, 'INCONCLUSIVE');
+
 INSERT INTO weather_attribute (weatherattr_code, weatherattr_name, weatherattr_unit)
 VALUES
   ('suhu_min',     'Temperatur Minimum Harian',       '°C'),

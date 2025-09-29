@@ -56,6 +56,13 @@ CREATE TABLE IF NOT EXISTS aqi_category (
   PRIMARY KEY (aqicat_id)
 );
 
+CREATE TABLE IF NOT EXISTS correlation_flag (
+  corrflag_id     INT NOT NULL,
+  corrflag_desc   VARCHAR(50) NOT NULL, 
+
+  PRIMARY KEY (corrflag_id)
+);
+
 -- =======================
 -- FACT / OBSERVATIONS
 -- =======================
@@ -169,6 +176,10 @@ CREATE TABLE IF NOT EXISTS correlation_result (
     
   CONSTRAINT fk_corr_corrmet
     FOREIGN KEY (corrmet_id) REFERENCES correlation_metrics(corrmet_id)
+    ON UPDATE CASCADE ON DELETE RESTRICT,
+
+  CONSTRAINT fk_corr_corrflag
+    FOREIGN KEY (val_result) REFERENCES correlation_flag(corrflag_id)
     ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
