@@ -163,10 +163,13 @@ CREATE TABLE IF NOT EXISTS correlation_result (
   period_name    VARCHAR(50) NOT NULL,
   processing_date DATE NOT NULL,
   val_result     INT NOT NULL,
+  pearson_r      FLOAT(3,2) NULL,
+  spearman_rho   FLOAT(3,2) NULL,
   n_samples      INT  NOT NULL,
   created_at     TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
   PRIMARY KEY (corres_id),
+  UNIQUE KEY uk_corrres_loc_metric_period (location_id, corrmet_id, period_name);
   KEY idx_corres_period (period_name),
   KEY idx_corres_processing_date (processing_date),
 

@@ -10,7 +10,8 @@ VALUES
   (1, 'DKI2', 'Kelapa Gading'),
   (1, 'DKI3', 'Jagakarsa'),
   (1, 'DKI4', 'Lubang Buaya'),
-  (1, 'DKI5', 'Kebon Jeruk');
+  (1, 'DKI5', 'Kebon Jeruk'),
+  (1, 'CITY_AGG_JKT', 'CITY_AGG_JAKARTA'); -- baru ditambahin unutk agregasi data kota
 
 INSERT INTO aqi_category (aqicat_name)
 VALUES
